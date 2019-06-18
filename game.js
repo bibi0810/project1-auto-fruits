@@ -1,5 +1,6 @@
 let fruits = new Fruits();
 let basket = new Basket();
+let point = 0;
 
 class Game {
   constructor() {
@@ -13,7 +14,10 @@ class Game {
 
   draw() {
     basket.draw();
-
+    if (frameCount % 60 == 0) {
+      if (point >= 1) point--;
+    }
+    text(point, 30, 30);
     if (frameCount % 50 === 0) {
       this.fruits.push(new Fruits(random(50, WIDTH - 100)));
       this.fruits[this.fruits.length - 1].setup();
@@ -47,6 +51,8 @@ class Game {
         } else if (fruit.randomFruitName.includes("surprise")) {
           let rand = Math.round(Math.random() * 3);
           if (rand === 0) {
+            point = 5;
+
             this.pace = 20;
             document.getElementById("special").innerHTML = "turbo mode";
             setTimeout(() => {
@@ -55,6 +61,8 @@ class Game {
             }, 5000);
           }
           if (rand === 1) {
+            point = 5;
+
             this.pace = 4;
             document.getElementById("special").innerHTML = "slow mode";
             setTimeout(() => {
@@ -63,6 +71,8 @@ class Game {
             }, 5000);
           }
           if (rand === 2) {
+            point = 5;
+
             basket.width = 40;
             basket.height = 40;
             document.getElementById("special").innerHTML = "tiny basket mode";
@@ -73,6 +83,8 @@ class Game {
             }, 5000);
           }
           if (rand === 3) {
+            point = 5;
+
             basket.width = 300;
             basket.height = 100;
             document.getElementById("special").innerHTML = "huge basket mode";
