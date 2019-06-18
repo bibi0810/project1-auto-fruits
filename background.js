@@ -9,6 +9,6 @@ class Background {
   }
 
   draw() {
-    image(this.backgroundImage, this.x, 0);
+    image(this.backgroundImage, this.x, 0, WIDTH, HEIGHT);
   }
 }

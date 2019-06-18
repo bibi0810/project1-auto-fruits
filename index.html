@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FRUITIES</title>
+    <title>game</title>
+    <link rel="stylesheet" href="style.css" />
     <body>
+      <img class="logo" src="/assets/Logo.jpg" height="100" />
+      <div class="display">
+        <div class="special">
+          <span id="special"></span>
+          <img
+            id="surprise"
+            src="/assets/surprise.png"
+            height="30"
+            width="30"
+          />
+        </div>
+        <span id="score">Score:</span>
+        <span id="credit"></span>
+      </div>
       <div id="game-board"></div>
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
       <script src="constants.js"></script>
       <script src="background.js"></script>

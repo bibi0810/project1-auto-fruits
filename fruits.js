@@ -33,6 +33,11 @@ class Fruits {
       "cherries",
       "kiwi",
       "pear",
+      "surprise",
+      "surprise",
+      "surprise",
+      "shit",
+      "gold",
       "scruffy-banana",
       "scruffy-strawberry",
       "scruffy-grapes",
@@ -55,8 +60,6 @@ class Fruits {
   }
 
   checkCollision(basket) {
-    /* if (basket.x < fruit.x && basket.x + basket.width > basket.x) 
-    if (basket.y + 40 < fruit.y + fruit.height && basket.y + 40 > fruit.y + fruit.height); */
     if (
       this.x1 > basket.x &&
       this.x1 < basket.x + basket.width &&
@@ -64,14 +67,9 @@ class Fruits {
     ) {
       return true;
     }
-
-    // basket.x + 50 === ? && basket.y - 20 === fruits.y1) {
-    // return hello;
   }
 
   draw() {
-    // var good = fruits.randomImageFruits;
-    //var bad = fruits.randomImageBad;
     image(
       this.randomImageFruits,
       this.x1,
@@ -80,10 +78,7 @@ class Fruits {
       this.fruitHeight
     );
 
-    /* for (var i = 0, i <= this.fruitsImage.length, i++) {
-      return i (this.fruitsImage, this.x1, this.x2, this.fruitWidth, this.fruitHeight);
-    } */
-    this.y1 += 8;
+    this.y1 += game.pace;
   }
 }
 
