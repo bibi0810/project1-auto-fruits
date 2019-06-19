@@ -36,7 +36,7 @@ class Fruits {
       "surprise",
       "surprise",
       "surprise",
-      "shit",
+      "dynamite",
       "gold",
       "scruffy-banana",
       "scruffy-strawberry",

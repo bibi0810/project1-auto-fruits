@@ -5,38 +5,49 @@ let point = 0;
 class Game {
   constructor() {
     this.fruits = [];
-    this.pace = 8;
+    this.pace = 6;
+    this.started = false;
   }
 
   setup() {
     basket.setup();
+    this.started = true;
   }
 
   draw() {
     basket.draw();
+
     if (frameCount % 60 == 0) {
       if (point >= 1) point--;
     }
+    textSize(30);
+    fill(0, 102, 153, 51);
     text(point, 30, 30);
-    if (frameCount % 50 === 0) {
+    if (frameCount % 60 === 0) {
       this.fruits.push(new Fruits(random(50, WIDTH - 100)));
       this.fruits[this.fruits.length - 1].setup();
     }
 
     this.fruits.forEach((fruit, i) => {
       fruit.draw();
+
       if (fruit.checkCollision(basket)) {
-        this.fruits.splice(i, 1);
+        // this.fruits.splice(i, 1);
+        this.fruits = this.fruits.filter((el, idx) => idx !== i);
+
         if (fruit.randomFruitName.includes("scruffy")) {
           basket.point = basket.point - 5;
           document.getElementById("credit").innerHTML = "-5";
+          document.getElementById("credit").style.color = "red";
           setTimeout(() => {
             document.getElementById("credit").innerHTML = "";
           }, 300);
           document.getElementById("score").innerHTML = "Score: " + basket.point;
-        } else if (fruit.randomFruitName.includes("shit")) {
+        } else if (fruit.randomFruitName.includes("dynamite")) {
           basket.point = basket.point - 10;
           document.getElementById("credit").innerHTML = "-10";
+          document.getElementById("credit").style.color = "red";
+          //fail sound
           setTimeout(() => {
             document.getElementById("credit").innerHTML = "";
           }, 300);
@@ -44,6 +55,8 @@ class Game {
         } else if (fruit.randomFruitName.includes("gold")) {
           basket.point = basket.point + 10;
           document.getElementById("credit").innerHTML = "+10";
+          document.getElementById("credit").style.color = "green";
+          //cheer sound
           setTimeout(() => {
             document.getElementById("credit").innerHTML = "";
           }, 300);
@@ -98,19 +111,25 @@ class Game {
           basket.point++;
           document.getElementById("score").innerHTML = "Score: " + basket.point;
           document.getElementById("credit").innerHTML = "+1";
+          document.getElementById("credit").style.color = "green";
           setTimeout(() => {
             document.getElementById("credit").innerHTML = "";
           }, 300);
         }
       }
-
       if (fruit.y1 > HEIGHT) {
-        this.fruits.splice(i, 1);
-        if (fruit.randomFruitName.includes("scruffy" || "surprise")) {
-          basket.point = basket.point;
-        } else {
+        // this.fruits.splice(i, 1);
+        this.fruits = this.fruits.filter((el, idx) => idx !== i);
+        if (
+          !(
+            fruit.randomFruitName.includes("surprise") ||
+            fruit.randomFruitName.includes("scruffy") ||
+            fruit.randomFruitName.includes("dynamite")
+          )
+        ) {
           basket.point = basket.point - 5;
           document.getElementById("credit").innerHTML = "-5";
+          document.getElementById("credit").style.color = "red";
           setTimeout(() => {
             document.getElementById("credit").innerHTML = "";
           }, 300);
@@ -118,6 +137,24 @@ class Game {
         }
       }
     });
+
+    if (basket.point > 50) {
+      document.getElementById("messages").innerHTML = "YOU WON!";
+      document.getElementById("messages").style.color = "green";
+      document.getElementById("score").innerHTML = "YOU ARE AWESOME";
+      document.getElementById("credit").innerHTML = "";
+    }
+    if (basket.point < -50) {
+      if (frameCount % 10 === 0) {
+        this.fruits.push(new Fruits(random(50, WIDTH - 100)));
+        this.fruits[this.fruits.length - 1].setup();
+      }
+      document.getElementById("messages").innerHTML = "GAME OVER!";
+      document.getElementById("messages").style.color = "red";
+      document.getElementById("score").innerHTML = "";
+      document.getElementById("credit").innerHTML = "";
+      button2.show();
+    }
   }
 
   mouseMoved() {
