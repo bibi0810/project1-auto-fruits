@@ -31,7 +31,7 @@ function setup() {
   button = createButton("START GAME");
   button.parent("game-board");
   button.style(
-    "background-image: linear-gradient(red, yellow, green, blue, pink, purple); padding: 20px; border-radius:12px; transform:translate(-50%,-50%); color:white;border:4px solid white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 1rem;"
+    "background-image: linear-gradient(red, yellow, green, blue, pink, purple); padding: 20px; border-radius:12px; transform:translate(-50%,-50%); color:white;border:4px solid white; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande'"
   );
   button.position(WIDTH / 2, HEIGHT / 4);
   button.mousePressed(startGame);
@@ -40,7 +40,7 @@ function setup() {
   button2.parent("game-board");
 
   button2.style(
-    "background-image: linear-gradient(red, yellow, green, blue, pink, purple); padding: 20px; border-radius:12px; transform:translate(-50%,-50%); color:white;border:4px solid white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 1rem;"
+    "background-image: linear-gradient(red, yellow, green, blue, pink, purple); padding: 20px; border-radius:12px; transform:translate(-50%,-50%); color:white;border:4px solid white; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande'"
   );
   button2.position(WIDTH / 2, HEIGHT / 4);
   button2.mousePressed(restartGame);
