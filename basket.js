@@ -5,6 +5,8 @@ class Basket {
     this.width = 100;
     this.height = 100;
     this.point = 0;
+    this.show = true;
+    this.win = false;
   }
 
   setup() {
@@ -12,12 +14,13 @@ class Basket {
   }
 
   draw() {
-    image(this.image, this.x, this.y, this.width, this.height);
+    if (this.show === true)
+      image(this.image, this.x, this.y, this.width, this.height);
   }
 
-  // mousePressed() {
-  //   this.startX = mouseX;
-  // }
+  hide() {
+    this.show = false;
+  }
 
   mouseMoved() {
     this.x = mouseX;
