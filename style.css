@@ -5,7 +5,7 @@
 }
 .container {
   width: 100vw;
-  margin-top: 150px;
+  margin-top: 95px;
   margin-right: 90px;
 }
 .foodwaste {
@@ -63,10 +63,14 @@ h1 {
 }
 
 .logo {
-  display: flex;
+  /*  display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
 }
 
 .display {
@@ -74,7 +78,6 @@ h1 {
   width: 800px;
   display: flex;
   text-align: right;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande";
@@ -113,7 +116,7 @@ h1 {
 }
 
 #game-board {
-  position: absolute;
+  position: relative;
   z-index: 0;
   text-align: center;
   padding: 10px;
@@ -140,4 +143,10 @@ h1 {
   font-size: 100px;
   margin-top: 170px;
   background-color: bisque;
+}
+
+.game-body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
 }

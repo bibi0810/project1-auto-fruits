@@ -151,7 +151,8 @@ class Game {
       }
     });
 
-    if (basket.point > 50) {
+    if (basket.point > 5) {
+      this.playCount++;
       basket.win = true;
       if (frameCount % 2 === 0) {
         console.log("drop fruit");
@@ -160,17 +161,15 @@ class Game {
       }
       document.getElementById("messages").innerHTML = "YOU WON!";
       document.getElementById("messages").style.color = "green";
-      document.getElementById("score").innerHTML = "YOU ARE AWESOME";
-      document.getElementById("score").innerHTML = "";
-      document.getElementById("credit").innerHTML = "";
       backgroundSound.stop();
-      if (!soundApplause.isPlaying()) soundApplause.play();
+      if (!soundApplause.isPlaying() && this.playCount == 1)
+        soundApplause.play();
 
       document.getElementsByClassName("display")[0].style.visibility = "hidden";
       basket.hide();
       button2.show();
     }
-    if (basket.point < -50) {
+    if (basket.point < -5) {
       this.playCount++;
 
       if (frameCount % 2 === 0) {
@@ -179,8 +178,6 @@ class Game {
       }
       document.getElementById("messages").innerHTML = "GAME OVER!";
       document.getElementById("messages").style.color = "red";
-      document.getElementById("score").innerHTML = "";
-      document.getElementById("credit").innerHTML = "";
 
       document.getElementsByClassName("display")[0].style.visibility = "hidden";
       button2.show();
@@ -188,7 +185,6 @@ class Game {
       backgroundSound.stop();
       if (!soundGameover.isPlaying() && this.playCount == 1)
         soundGameover.play();
-      /* soundGameover._clearOnEnd(); */
     }
   }
 
