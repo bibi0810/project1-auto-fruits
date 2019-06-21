@@ -151,7 +151,7 @@ class Game {
       }
     });
 
-    if (basket.point > 5) {
+    if (basket.point > 50) {
       this.playCount++;
       basket.win = true;
       if (frameCount % 2 === 0) {
@@ -169,7 +169,7 @@ class Game {
       basket.hide();
       button2.show();
     }
-    if (basket.point < -5) {
+    if (basket.point < -50) {
       this.playCount++;
 
       if (frameCount % 2 === 0) {
