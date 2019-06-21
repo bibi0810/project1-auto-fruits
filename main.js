@@ -16,7 +16,7 @@ function preload() {
   soundGameover = loadSound("sounds/KL Peach Game Over III.mp3");
   soundGold = loadSound("sounds/shimmer_1.flac");
   countdown = loadSound("sounds/Slow Office Clock Tick Sfx.wav");
-  backgroundSound = loadSound("sounds/99 Drum Samples DEMO.mp3");
+  backgroundSound = loadSound("sounds/99 Drum Samples.mp3");
   dynamiteSound = loadSound("sounds/Fire impact 1.wav");
   minusSound = loadSound("sounds/sfx_sounds_damage3.wav");
   plusSound = loadSound("sounds/sfx_sound_neutral8.wav");

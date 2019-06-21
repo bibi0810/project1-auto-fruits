@@ -1,16 +1,18 @@
 .body {
   display: flex;
   background-color: salmon;
-  justify-items: center;
+  justify-content: center;
 }
 .container {
-  width: 100vw;
-  margin-top: 95px;
+  width: 60vw;
+  margin-top: 120px;
   margin-right: 90px;
+  margin-left: 90px;
 }
 .foodwaste {
   display: flex;
-  background-color: salmon;
+  justify-content: baseline;
+  line-height: 30px;
 }
 
 .instruction {
@@ -18,10 +20,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande";
   font-size: 18px;
   color: indigo;
   margin-top: 100px;
+  line-height: 30px;
 }
 
 h1 {
@@ -29,7 +33,9 @@ h1 {
   font-size: 20px;
   font-weight: bold;
   color: wheat;
-  padding-right: 10%;
+  padding-right: 3%;
+  margin-top: 0;
+  margin-right: 15px;
 }
 
 #info {
@@ -37,12 +43,14 @@ h1 {
   color: wheat;
   align-self: center;
   font-size: 18px;
+  margin-top: 0;
 }
 
 .landing {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande";
   font-size: 50px;
   margin-top: 50px;
+  padding: 15px;
 
   border: 2px solid wheat;
 
@@ -149,4 +157,5 @@ h1 {
   display: flex;
   height: 100vh;
   width: 100vw;
+  justify-content: center;
 }
